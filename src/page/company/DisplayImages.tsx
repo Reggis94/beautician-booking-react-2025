@@ -34,7 +34,7 @@ function DisplayImages(idCompany: string) {
             style={{ width: "100%", margin: 0, padding: 0 }}
           >
             <img
-              src={`/public/client-banners/${idCompany.idCompany}/${banner.filename}`}
+              src={`/client-banners/${idCompany.idCompany}/${banner.filename}`}
               alt={`Image ${banner.id}`}
               style={{
                 width: "100%",

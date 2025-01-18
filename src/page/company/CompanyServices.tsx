@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 function CompanyServices() {
   return (
     <>
+      <h1
+        style={{
+          color: "rgb(65, 65, 65)",
+          fontWeight: 600,
+          fontFamily:
+            '"Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontSize: "18px",
+          lineHeight: "22px",
+        }}
+      >
+        Select a service
+      </h1>
       <div className="service-div">
         <h1>Service 1</h1>
         <p>$100 - 60 minutes</p>

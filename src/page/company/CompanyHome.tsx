@@ -31,7 +31,7 @@ function CompanyHome() {
   return (
     <>
       {id}
-      <div className="wrapper" style={{ background: "red", height: "1000px" }}>
+      <div className="wrapper" style={{}}>
         HELLO
         <DisplayImages idCompany={id}></DisplayImages>
         IMAGES
