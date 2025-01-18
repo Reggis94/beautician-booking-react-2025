@@ -5,22 +5,43 @@ function DisplayImages(idCompany: string) {
 
   useEffect(() => {
     async function fetchBanners() {
-      let res = await fetch("../public/client-banners/" + idCompany);
-      let data = res.json;
-
-      setBannerImages(bannerImages);
+      try {
+        console.log(idCompany.idCompany);
+        let res = await fetch(
+          "../public/client-banners/" + idCompany.idCompany + "/banners.json"
+        );
+        let data = res.json();
+        console.log(data);
+        if (res.ok) {
+          console.log("OK");
+        }
+        setBannerImages(await data);
+      } catch (error) {
+        console.log(error);
+      }
     }
+
+    fetchBanners();
   });
 
   return (
     <>
-      <div className="image-gallery">
+      <div className="image-gallery" style={{ width: "100%", padding: 0 }}>
         {bannerImages.map((banner) => (
-          <div key={banner.id} className="image-item">
+          <div
+            key={banner.id}
+            className="image-item"
+            style={{ width: "100%", margin: 0, padding: 0 }}
+          >
             <img
-              src={`${banner.filename}`}
+              src={`/public/client-banners/${idCompany.idCompany}/${banner.filename}`}
               alt={`Image ${banner.id}`}
-              style={{ width: "200px", height: "150px", margin: "10px" }}
+              style={{
+                width: "100%",
+                margin: 0,
+                padding: 0,
+                objectFit: "cover",
+              }}
             />
           </div>
         ))}
