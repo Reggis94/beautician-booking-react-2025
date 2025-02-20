@@ -1,6 +1,31 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function CompanyServices() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    async function fetchServices() {
+      const url = "http://127.0.0.1:8000/api/business/2/service";
+      try {
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(
+            "Something went wrong while fetching some data " + res.status
+          );
+        }
+
+        const json = await res.json();
+        console.log(json);
+      } catch (e) {
+        console.log(
+          "Something went wrong while fetching some data " + e.message
+        );
+      }
+    }
+    fetchServices();
+  });
+
   return (
     <>
       <h1
